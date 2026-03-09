@@ -18,7 +18,6 @@
     <body class="bg-dark">
         <div id="divWeather" class="row d-flex justify-content-center">
         </div>
-        <h6>Data courtesy of https://open-meteo.com/</h6>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <script>
             const strBaseURL=`https://api.open-meteo.com/v1/forecast?latitude=36.1682&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,precipitation,weather_code&timezone=America%2FChicago&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
@@ -73,6 +72,7 @@
                                     <div><i class="bi bi-moisture" style="font-size: 15px"></i> ${arrWeather.current.relative_humidity_2m}%
                                     </div>
                                 </div>
+                                <div><p>Data courtesy of https://open-meteo.com/</p></div>
                             </div>
 
                         </div>
