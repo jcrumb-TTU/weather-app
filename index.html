@@ -14,12 +14,11 @@
         <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-ipad-retina-152x152.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     </head>
     <body class="bg-dark">
         <div id="divWeather" class="row d-flex justify-content-center">
         </div>
-        
+        <h6>Data courtesy of https://open-meteo.com/</h6>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <script>
             const strBaseURL=`https://api.open-meteo.com/v1/forecast?latitude=36.1682&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,precipitation,weather_code&timezone=America%2FChicago&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`
@@ -57,31 +56,37 @@
                     strWeatherIcon = "bi bi-cloud-lightning-rain-fill"
                 }
                 document.querySelector('#divWeather').innerHTML += `<div class="col-md-8 col-lg-6 col-xl-5"><div class="card text-body">
-                    <div class="card-body">
+                        <div class="card-body">
 
-                        <div class="d-flex">
-                            <h6 class="flex-grow-1">Cookeville</h6>
-                        </div>
+                            <div class="d-flex">
+                                <h6 class="flex-grow-1">Cookeville</h6>
+                            </div>
 
-                        <div class="d-flex flex-column text-center mt-5 mb-4">
-                            <i class="${strWeatherIcon}" style="font-size: 100px"></i>
-                        <h6 class="display-4 mb-0 font-weight-bold"> ${arrWeather.current.temperature_2m} </h6>
-                        ${strWeatherStatus}
-                        </div>
+                            <div class="d-flex flex-column text-center mt-5 mb-4">
+                                <i class="${strWeatherIcon}" style="font-size: 100px"></i>
+                            <h6 class="display-4 mb-0 font-weight-bold"> ${arrWeather.current.temperature_2m} </h6>
+                            ${strWeatherStatus}
+                            </div>
 
-                        <div class="d-flex align-items-center">
-                            <div class="flex-grow-1">
-                                <div><i class="bi bi-moisture" style="font-size: 15px"></i> ${arrWeather.current.relative_humidity_2m}%
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1">
+                                    <div><i class="bi bi-moisture" style="font-size: 15px"></i> ${arrWeather.current.relative_humidity_2m}%
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-
                     </div>
-                </div>
 
-            </div>`
-                })
+                </div>`
+            })
 
+            //AI was used as such in this program
+            //Google search for things such as bootstrap icons and the weather template that was used in this program
+            //https://mdbootstrap.com/docs/standard/extended/weather/ with the first option used as the template html for
+            //this program with modifications upon creation of the application. Additionally I used google to search
+            //to find if Open Mateo had weather icons to use for the project as well as if open mateo had geolocation ability
+            //to tell what the exact location was for the program, neither of which yielded anything of use. 
         </script>
     </body>
 </html>
